@@ -5,6 +5,9 @@
 ## Переглянути
 [Відкрити резюме](https://nazoferon.github.io/nazar-haniuk-resume/)
 
+## Завантажити
+[Резюме у PDF](Nazar_Haniuk_Resume.pdf)
+
 ## Технології
 - HTML
 - CSS
