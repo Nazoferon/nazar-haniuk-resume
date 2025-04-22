@@ -3,7 +3,7 @@
 Це моє професійне резюме, створене як вебсторінка для демонстрації навичок розробки та проєктів у мобільній розробці (Android, Java) та автоматизації (Python, Telegram-боти). Побудовано з використанням HTML і CSS, розгорнуто на GitHub Pages.
 
 ## Переглянути
-[Відкрити резюме](https://nazoferon.github.io/nazar-resume/)
+[Відкрити резюме](https://nazoferon.github.io/nazar-haniuk-resume/)
 
 ## Технології
 - HTML
