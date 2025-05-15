@@ -5,106 +5,306 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Резюме - Назар Ганюк</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
     <div class="container">
         <div class="header">
-            <img src="profile.jpg" alt="Назар Ганюк" class="profile-photo">
-            <h1>Назар Ганюк</h1>
-        </div>
-        <div class="section contact-info">
-            <p>Email: <a href="mailto:nazar.haniuk.dev@gmail.com">nazar.haniuk.dev@gmail.com</a></p>
-            <p>Місто: Київ, Україна</p>
-            <p>GitHub: <a href="https://github.com/Nazoferon">github.com/Nazoferon</a></p>
+            <div class="profile-container">
+                <div class="profile-photo-container">
+                    <img src="profile.jpg" alt="Назар Ганюк" class="profile-photo">
+                </div>
+                <h1 class="fade-in">Назар Ганюк</h1>
+                <p class="subtitle fade-in">Інженер програмного забезпечення</p>
+            </div>
+            <div class="social-links fade-in">
+                <a href="mailto:nazar.haniuk.dev@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/Nazoferon" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://t.me/yourusername" class="social-link" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://www.instagram.com/yourusername" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Мета</h2>
+        <div class="section contact-info fade-in">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Київ, Україна</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:nazar.haniuk.dev@gmail.com">nazar.haniuk.dev@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <p><a href="https://github.com/Nazoferon">github.com/Nazoferon</a></p>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2><i class="fas fa-bullseye"></i> Мета</h2>
             <p>Студент третього курсу за спеціальністю "Інженерія програмного забезпечення", який прагне застосувати професійні навички розробки програмного забезпечення та автоматизації в межах навчальної практики в ІТ-компанії.</p>
         </div>
 
-        <div class="section">
-            <h2>Освіта</h2>
-            <p><strong>Національний Університет Біоресурсів і Природокористування України (НУБіП України)</strong><br>
-            Бакалавр, Інженерія програмного забезпечення<br>
-            Вересень 2023 – теперішній час (3-й курс, скорочена програма)</p>
-            <p><strong>ВСП Рівненський фаховий коледж НУБіП України</strong><br>
-            Фаховий молодший бакалавр, Інженерія програмного забезпечення (з відзнакою)<br>
-            Вересень 2021 – Червень 2023<br>
-            Релевантні курси: Програмування на Java, Мобільна розробка, Структури даних</p>
-            <p><strong>Онлайн-курси</strong></p>
-            <ul>
-                <li>Object-Oriented Design, Coursera, 2024</li>
-                <li>Python: Структури даних, Prometheus, 2023</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Навички</h2>
-            <ul>
-                <li><strong>Технічні</strong>: Java, Android SDK, Python, Lua, SQLite, osmdroid, OpenStreetMap, aiogram, BeautifulSoup, requests, Mermaid, PlantUML, Git, HTML/CSS (базовий рівень)</li>
-                <li><strong>М’які навички</strong>: Робота в команді, аналітичне мислення, вирішення проблем</li>
-                <li><strong>Мови</strong>: Українська (рідна), англійська (B1)</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Проєкти</h2>
-            <div class="project-item">
-                <p><strong>MapARGuide: Демонстраційний навігаційний додаток для Android</strong><br>
-                Вересень 2023 – Січень 2024</p>
-                <ul>
-                    <li>Розроблено демонстраційний Android-додаток у рамках курсової роботи з дисципліни "Конструювання програмного забезпечення".</li>
-                    <li>Основний акцент – на створенні документації для ПЗ, включаючи специфікації та діаграми.</li>
-                    <li>Реалізовано базовий функціонал відображення офлайн-карт і маршрутів за допомогою osmdroid (деякі функції як заглушки).</li>
-                    <li>Використані технології: Java, Android SDK, osmdroid, OpenStreetMap, SQLite.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <p><strong>CypherGuard: Додаток для шифрування тексту</strong><br>
-                GitHub: <a href="https://github.com/Nazoferon/CypherGuard">github.com/Nazoferon/CypherGuard</a><br>
-                Березень 2023 – Травень 2023</p>
-                <ul>
-                    <li>Створено Android-додаток для шифрування та дешифрування тексту методами Цезаря та Віженера в рамках університетського курсу.</li>
-                    <li>Реалізовано зручний інтерфейс та обробку введених даних.</li>
-                    <li>Використані технології: Java, Android SDK.</li>
-                    <li>Результат: Отримано позитивний відгук від викладача.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <p><strong>Telegram-бот для інтернет-провайдера</strong><br>
-                GitHub: <a href="https://github.com/Nazoferon/HelpGrid">github.com/Nazoferon/HelpGrid</a><br>
-                Травень 2023 – Червень 2023</p>
-                <ul>
-                    <li>Розроблено Telegram-бота для автоматизації клієнтського сервісу інтернет-провайдера як дипломну роботу (3 тижні).</li>
-                    <li>Реалізовано функції перегляду тарифів, оплати через LiqPay, зв’язку з підтримкою та сповіщення про новини.</li>
-                    <li>Використані технології: Python, aiogram, SQLite, BeautifulSoup, requests.</li>
-                    <li>Досягнення: Інтегровано веб-скрейпінг для оновлення новин та систему управління користувачами.</li>
-                </ul>
+        <div class="section fade-in">
+            <h2><i class="fas fa-graduation-cap"></i> Освіта</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Національний Університет Біоресурсів і Природокористування України (НУБіП України)</h3>
+                        <p class="timeline-date">Вересень 2023 – теперішній час</p>
+                        <p>Бакалавр, Інженерія програмного забезпечення<br>
+                        3-й курс, скорочена програма</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>ВСП Рівненський фаховий коледж НУБіП України</h3>
+                        <p class="timeline-date">Вересень 2021 – Червень 2023</p>
+                        <p>Фаховий молодший бакалавр, Інженерія програмного забезпечення (з відзнакою)<br>
+                        Релевантні курси: Програмування на Java, Мобільна розробка, Структури даних</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Онлайн-курси</h3>
+                        <ul class="course-list">
+                            <li>Object-Oriented Design, Coursera, 2024</li>
+                            <li>Python: Структури даних, Prometheus, 2023</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Досвід</h2>
-            <p><strong>Розробка навчальних проєктів, НУБіП України</strong><br>
-            Вересень 2023 – Червень 2024</p>
-            <ul>
-                <li>Розроблено Android-додатки з інтеграцією OpenStreetMap, SQLite та мережевих запитів.</li>
-                <li>Створено Telegram-боти для автоматизації задач, зокрема розкладу занять, сповіщень про тривоги та моніторингу вебсайтів.</li>
-                <li>Працював із побудови діаграм у Mermaid і PlantUML для документування проєктів.</li>
-            </ul>
-            <p><strong>Розробка скриптів для GTA SA SAMP</strong><br>
-            <ul>
-                <li>Створено Lua-скрипти для модифікації гри, зокрема систему маркерів для гравців (GangHelper).</li>
-                <li>Використані технології: Lua, MoonLoader, ImGui.</li>
-            </ul>
+        <div class="section skills-section fade-in">
+            <h2><i class="fas fa-code"></i> Навички</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Мови програмування</h3>
+                    <div class="skill-item" data-skill="Java">
+                        <span>Java</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Python">
+                        <span>Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Lua">
+                        <span>Lua</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="C++">
+                        <span>C++</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="C#">
+                        <span>C# (Windows Forms)</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Веб-технології</h3>
+                    <div class="skill-item" data-skill="HTML">
+                        <span>HTML</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="CSS">
+                        <span>CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="JavaScript">
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Інструменти</h3>
+                    <div class="skill-item" data-skill="Git">
+                        <span>Git</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Android Studio">
+                        <span>Android Studio</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="SQLite">
+                        <span>SQLite</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Diagramming">
+                        <span>PlantUML/Mermaid</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Мови</h3>
+                <div class="language-skills">
+                    <div class="language-skill">
+                        <span>Українська</span>
+                        <span class="language-level">Рідна</span>
+                    </div>
+                    <div class="language-skill">
+                        <span>Англійська</span>
+                        <span class="language-level">B1</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
+        <div class="section projects-section fade-in">
+            <h2><i class="fas fa-laptop-code"></i> Проєкти</h2>
+            <div class="projects-container">
+                <div class="project-card" onclick="toggleProjectDetails(this)">
+                    <div class="project-header">
+                        <h3>MapARGuide: Навігаційний додаток для Android</h3>
+                        <span class="project-date">Вересень 2023 – Січень 2024</span>
+                    </div>
+                    <div class="project-body">
+                        <p>Демонстраційний Android-додаток у рамках курсової роботи з дисципліни "Конструювання програмного забезпечення".</p>
+                        <div class="project-details">
+                            <ul>
+                                <li>Розроблено демонстраційний Android-додаток із фокусом на документуванні програмного забезпечення</li>
+                                <li>Створено специфікації та діаграми для проєкту</li>
+                                <li>Реалізовано функціонал відображення офлайн-карт і маршрутів за допомогою osmdroid</li>
+                                <li>Використані технології: Java, Android SDK, osmdroid, OpenStreetMap, SQLite</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Android SDK</span>
+                            <span class="tech-badge">osmdroid</span>
+                            <span class="tech-badge">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="toggleProjectDetails(this)">
+                    <div class="project-header">
+                        <h3>CypherGuard: Додаток для шифрування тексту</h3>
+                        <span class="project-date">Березень 2023 – Травень 2023</span>
+                    </div>
+                    <div class="project-body">
+                        <p>Android-додаток для шифрування та дешифрування тексту методами Цезаря та Віженера.</p>
+                        <div class="project-details">
+                            <ul>
+                                <li>Створено Android-додаток для шифрування та дешифрування тексту</li>
+                                <li>Реалізовано зручний інтерфейс та обробку введених даних</li>
+                                <li>Використані технології: Java, Android SDK</li>
+                                <li>Отримано позитивний відгук від викладача</li>
+                            </ul>
+                            <p><a href="https://github.com/Nazoferon/CypherGuard" target="_blank" class="project-link"><i class="fab fa-github"></i> Переглянути на GitHub</a></p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Android SDK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="toggleProjectDetails(this)">
+                    <div class="project-header">
+                        <h3>Telegram-бот для інтернет-провайдера</h3>
+                        <span class="project-date">Травень 2023 – Червень 2023</span>
+                    </div>
+                    <div class="project-body">
+                        <p>Telegram-бот для автоматизації клієнтського сервісу інтернет-провайдера як дипломна робота.</p>
+                        <div class="project-details">
+                            <ul>
+                                <li>Розроблено Telegram-бота для автоматизації клієнтського сервісу</li>
+                                <li>Реалізовано функції перегляду тарифів, оплати через LiqPay, зв'язку з підтримкою</li>
+                                <li>Інтегровано веб-скрейпінг для оновлення новин та систему управління користувачами</li>
+                                <li>Використані технології: Python, aiogram, SQLite, BeautifulSoup, requests</li>
+                            </ul>
+                            <p><a href="https://github.com/Nazoferon/HelpGrid" target="_blank" class="project-link"><i class="fab fa-github"></i> Переглянути на GitHub</a></p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">aiogram</span>
+                            <span class="tech-badge">SQLite</span>
+                            <span class="tech-badge">BeautifulSoup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in">
+            <h2><i class="fas fa-briefcase"></i> Досвід</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Розробка навчальних проєктів, НУБіП України</h3>
+                        <p class="timeline-date">Вересень 2023 – Червень 2024</p>
+                        <ul>
+                            <li>Розроблено Android-додатки з інтеграцією OpenStreetMap, SQLite та мережевих запитів</li>
+                            <li>Створено Telegram-боти для автоматизації задач, зокрема розкладу занять, сповіщень про тривоги та моніторингу вебсайтів</li>
+                            <li>Працював із побудови діаграм у Mermaid і PlantUML для документування проєктів</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Розробка скриптів для GTA SA SAMP</h3>
+                        <p class="timeline-date">Персональний проєкт</p>
+                        <ul>
+                            <li>Створено Lua-скрипти для модифікації гри, зокрема систему маркерів для гравців (GangHelper)</li>
+                            <li>Використані технології: Lua, MoonLoader, ImGui</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section footer fade-in">
             <p><em>Готовий надати детальну інформацію про проєкти чи рекомендації за запитом.</em></p>
+            <p class="copyright">© 2025 Назар Ганюк - Оновлено <span id="last-updated">Травень 2025</span></p>
         </div>
     </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
