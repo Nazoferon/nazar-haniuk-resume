@@ -473,25 +473,101 @@ h2::after {
     }
 }
 
-.download-btn {
+/* Стилі для кнопки Друк */
+.print-btn {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.75rem 1.5rem;
     background: linear-gradient(to right, #2563eb, #60a5fa);
     color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 8px;
     font-size: 1em;
     font-weight: 500;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.download-btn:hover {
+.print-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-.download-btn:active {
+.print-btn:active {
     transform: translateY(0);
     box-shadow: none;
+}
+
+/* Оновлені стилі для друку */
+@media print {
+    body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+    }
+
+    .loading-screen, .print-btn {
+        display: none;
+    }
+
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0.5in;
+        max-width: 100%;
+    }
+
+    .profile-photo-container {
+        width: 80px;
+        height: 80px;
+        box-shadow: none;
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        color: black;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        color: black;
+        border-bottom: 1px solid black;
+    }
+
+    .section {
+        opacity: 1;
+        transform: none;
+        margin-bottom: 1em;
+    }
+
+    .skill-fill {
+        background: #2563eb !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .project-card, .timeline-content {
+        break-inside: avoid;
+        box-shadow: none;
+        background: none;
+    }
+
+    .timeline::before, .timeline-dot {
+        display: none;
+    }
+
+    .timeline {
+        padding-left: 0;
+    }
+
+    .footer {
+        margin-top: 1em;
+        border-top: 1px solid #ccc;
+        color: black;
+    }
 }

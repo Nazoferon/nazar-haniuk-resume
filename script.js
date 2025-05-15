@@ -1,46 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Loading Screen Animation
+    console.log('DOM loaded, initializing scripts');
+
+    // Loading Screen
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
+        console.log('Hiding loading screen');
         setTimeout(() => {
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
+                console.log('Loading screen hidden');
             }, 500);
         }, 800);
-    }
-
-    // Download PDF button
-    const downloadBtn = document.getElementById('download-pdf');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', () => {
-            const element = document.querySelector('.container');
-            const opt = {
-                margin: 0.5,
-                filename: 'Nazar_Haniuk_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        });
+    } else {
+        console.warn('Loading screen not found');
     }
 
     // Fade-in animations for sections
     const sections = document.querySelectorAll('.section');
+    console.log(`Found ${sections.length} sections`);
     sections.forEach((section, index) => {
         section.style.animationDelay = `${0.5 + index * 0.2}s`;
     });
 
     // Animate skill bars
     const skillBars = document.querySelectorAll('.skill-fill');
+    console.log(`Found ${skillBars.length} skill bars`);
     if (skillBars.length) {
         setTimeout(() => {
             skillBars.forEach(bar => {
-                const width = bar.dataset.width || bar.style.width || '100%';
+                const width = bar.dataset.width || '100%';
                 bar.style.width = '0';
                 setTimeout(() => {
                     bar.style.width = width;
+                    console.log(`Animated skill bar to ${width}`);
                 }, 300);
             });
         }, 1000);
@@ -53,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 
                         'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
         lastUpdatedElement.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        console.log('Updated footer date');
     }
 
     // Intersection Observer for scroll animations
@@ -60,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
+                console.log(`Fade-in triggered for section: ${entry.target.tagName}`);
                 observer.unobserve(entry.target);
             }
         });
@@ -68,34 +63,42 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // Print button
+    const printBtn = document.getElementById('print-resume');
+    if (printBtn) {
+        printBtn.addEventListener('click', () => {
+            console.log('Print button clicked');
+            window.print();
+        });
+    } else {
+        console.warn('Print button not found');
+    }
 });
 
-// Toggle project details
 function toggleProjectDetails(projectCard) {
     if (!projectCard) return;
     const isActive = projectCard.classList.contains('active');
-    
     document.querySelectorAll('.project-card').forEach(card => {
         card.classList.remove('active');
     });
-    
     if (!isActive) {
         projectCard.classList.add('active');
+        console.log('Toggled project card');
     }
 }
 
-// Typing animation for subtitle
 function typeWriterEffect() {
     const subtitle = document.querySelector('.subtitle');
-    if (!subtitle) return;
-    
+    if (!subtitle) {
+        console.warn('Subtitle not found');
+        return;
+    }
     const text = subtitle.textContent;
     subtitle.textContent = '';
     subtitle.style.display = 'block';
-    
     let i = 0;
     const speed = 50;
-    
     function type() {
         if (i < text.length) {
             subtitle.textContent += text.charAt(i);
@@ -103,11 +106,10 @@ function typeWriterEffect() {
             setTimeout(type, speed);
         }
     }
-    
     setTimeout(type, 1000);
+    console.log('Started typewriter effect');
 }
 
-// Profile photo hover effect
 const profilePhoto = document.querySelector('.profile-photo');
 if (profilePhoto) {
     profilePhoto.addEventListener('mouseover', () => {
@@ -116,15 +118,14 @@ if (profilePhoto) {
     profilePhoto.addEventListener('mouseout', () => {
         profilePhoto.style.transform = 'scale(1)';
     });
+    console.log('Profile photo hover effect initialized');
 }
 
-// Smooth scroll for internal links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
         if (targetElement) {
             window.scrollTo({
                 top: targetElement.offsetTop - 50,
@@ -134,5 +135,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize typewriter effect
 typeWriterEffect();
