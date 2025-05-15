@@ -1,32 +1,35 @@
-// Loading Screen Animation
 document.addEventListener('DOMContentLoaded', () => {
-    // Set delays for fade-in animations
+    // Loading Screen Animation
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 800);
+    }
+
+    // Fade-in animations for sections
     const sections = document.querySelectorAll('.section');
     sections.forEach((section, index) => {
-        section.style.animationDelay = `${0.5 + (index * 0.2)}s`;
+        section.style.animationDelay = `${0.5 + index * 0.2}s`;
     });
-    
-    // Animate skill bars after page load
-    setTimeout(() => {
-        const skillBars = document.querySelectorAll('.skill-fill');
-        skillBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 300);
-        });
-    }, 1000);
-    
-    // Hide loading screen after everything is loaded
-    setTimeout(() => {
-        const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.style.opacity = '0';
+
+    // Animate skill bars
+    const skillBars = document.querySelectorAll('.skill-fill');
+    if (skillBars.length) {
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 800);
-    
+            skillBars.forEach(bar => {
+                const width = bar.dataset.width || bar.style.width || '100%';
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }, 1000);
+    }
+
     // Set current year in footer
     const lastUpdatedElement = document.getElementById('last-updated');
     if (lastUpdatedElement) {
@@ -35,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
         lastUpdatedElement.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
     }
-    
-    // Add observer for scroll animations
+
+    // Intersection Observer for scroll animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -45,29 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
-    
+
     sections.forEach(section => {
         observer.observe(section);
     });
 });
 
-// Function to toggle project details
+// Toggle project details
 function toggleProjectDetails(projectCard) {
+    if (!projectCard) return;
     const isActive = projectCard.classList.contains('active');
     
-    // Close all other project cards
-    const allCards = document.querySelectorAll('.project-card');
-    allCards.forEach(card => {
+    document.querySelectorAll('.project-card').forEach(card => {
         card.classList.remove('active');
     });
     
-    // Toggle current card
     if (!isActive) {
         projectCard.classList.add('active');
     }
 }
 
-// Typing animation for subtitle (optional effect)
+// Typing animation for subtitle
 function typeWriterEffect() {
     const subtitle = document.querySelector('.subtitle');
     if (!subtitle) return;
@@ -77,7 +78,7 @@ function typeWriterEffect() {
     subtitle.style.display = 'block';
     
     let i = 0;
-    const speed = 50; // milliseconds
+    const speed = 50;
     
     function type() {
         if (i < text.length) {
@@ -87,7 +88,6 @@ function typeWriterEffect() {
         }
     }
     
-    // Start typing after a delay
     setTimeout(type, 1000);
 }
 
@@ -97,7 +97,6 @@ if (profilePhoto) {
     profilePhoto.addEventListener('mouseover', () => {
         profilePhoto.style.transform = 'scale(1.05)';
     });
-    
     profilePhoto.addEventListener('mouseout', () => {
         profilePhoto.style.transform = 'scale(1)';
     });
@@ -107,7 +106,6 @@ if (profilePhoto) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         
@@ -120,20 +118,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Dark/Light Mode Toggle (Uncomment if you want to add this feature)
-/*
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    localStorage.setItem('dark-mode', isDarkMode);
-}
-
-// Check user preference on load
-document.addEventListener('DOMContentLoaded', () => {
-    const savedMode = localStorage.getItem('dark-mode');
-    if (savedMode === 'true' || 
-        (savedMode === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.body.classList.add('dark-mode');
-    }
-});
-*/
+// Initialize typewriter effect
+typeWriterEffect();
