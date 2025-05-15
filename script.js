@@ -74,6 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn('Print button not found');
     }
+
+    // Project card click handler
+    const projectCards = document.querySelectorAll('.project-card');
+    console.log(`Found ${projectCards.length} project cards`);
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            toggleProjectDetails(card);
+        });
+    });
 });
 
 function toggleProjectDetails(projectCard) {

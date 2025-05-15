@@ -113,7 +113,7 @@ h1 {
     transition: all 0.3s ease;
 }
 
-ждения.social-link:hover {
+.social-link:hover {
     background: #2563eb;
     color: white;
     transform: translateY(-3px);
@@ -175,6 +175,23 @@ h2::after {
     margin-bottom: 1rem;
 }
 
+.skill {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill span:first-child {
+    font-size: 1em;
+    color: #1e293b;
+}
+
+.skill-level {
+    font-size: 0.9em;
+    color: #64748b;
+}
+
 .skill-bar {
     background: #e2e8f0;
     border-radius: 8px;
@@ -184,9 +201,9 @@ h2::after {
 }
 
 .skill-fill {
-    background: linear-gradient(to right, #2563eb, #60a5fa);
+    background: linear-gradient(to right, #34d399, #10b981);
     height: 100%;
-    transition: width 1s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
 
 /* Languages */
@@ -214,6 +231,7 @@ h2::after {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     cursor: pointer;
+    border: 2px solid transparent;
 }
 
 .project-card:hover {
@@ -222,7 +240,10 @@ h2::after {
 }
 
 .project-card.active {
-    background: #f8fafc;
+    background: white;
+    border: 2px solid #34d399;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
 }
 
 .project-header {
@@ -323,7 +344,7 @@ h2::after {
     border: 5px solid #60a5fa;
     border-top-color: #2563eb;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 1s linear이드
 }
 
 @keyframes spin {
@@ -358,12 +379,37 @@ h2::after {
         background: #334155;
     }
     
+    .skill span:first-child {
+        color: #f8fafc;
+    }
+    
+    .skill-level {
+        color: #94a3b8;
+    }
+    
     .skill-bar {
         background: #475569;
     }
     
+    .skill-fill {
+        background: linear-gradient(to right, #6ee7b7, #34d399);
+    }
+    
     .project-card {
         background: #1e293b;
+        border: 2px solid transparent;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card.active {
+        background: #1e293b;
+        border: 2px solid #6ee7b7;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        transform: scale(1.02);
     }
     
     .tech-badge {
@@ -445,35 +491,80 @@ h2::after {
     body {
         background: white;
         color: black;
+        font-size: 10pt;
+    }
+    
+    .loading-screen, .print-btn {
+        display: none;
     }
     
     .container {
         box-shadow: none;
         margin: 0;
-        padding: 1rem;
+        padding: 0.5in;
+        max-width: 100%;
     }
     
     .profile-photo-container {
+        width: 80px;
+        height: 80px;
         box-shadow: none;
     }
     
-    .social-links, .loading-screen {
-        display: none;
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        color: black;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        color: black;
+        border-bottom: 1px solid black;
+    }
+    
+    .section {
+        opacity: 1;
+        transform: none;
+        margin-bottom: 1em;
+    }
+    
+    .skill-fill {
+        background: #34d399 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
     }
     
     .project-card, .timeline-content {
         break-inside: avoid;
         box-shadow: none;
+        background: none;
     }
     
-    .skill-fill {
-        background: #2563eb !important;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
+    .project-card.active {
+        border: none; /* Прибираємо рамку при друці */
+    }
+    
+    .timeline::before, .timeline-dot {
+        display: none;
+    }
+    
+    .timeline {
+        padding-left: 0;
+    }
+    
+    .footer {
+        margin-top: 1em;
+        border-top: 1px solid #ccc;
+        color: black;
     }
 }
 
-/* Стилі для кнопки Друк */
+/* Print Button */
 .print-btn {
     display: inline-block;
     margin-top: 1.5rem;
@@ -496,78 +587,4 @@ h2::after {
 .print-btn:active {
     transform: translateY(0);
     box-shadow: none;
-}
-
-/* Оновлені стилі для друку */
-@media print {
-    body {
-        background: white;
-        color: black;
-        font-size: 10pt;
-    }
-
-    .loading-screen, .print-btn {
-        display: none;
-    }
-
-    .container {
-        box-shadow: none;
-        margin: 0;
-        padding: 0.5in;
-        max-width: 100%;
-    }
-
-    .profile-photo-container {
-        width: 80px;
-        height: 80px;
-        box-shadow: none;
-    }
-
-    .profile-photo {
-        width: 100%;
-        height: 100%;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        color: black;
-    }
-
-    h2 {
-        font-size: 1.2em;
-        color: black;
-        border-bottom: 1px solid black;
-    }
-
-    .section {
-        opacity: 1;
-        transform: none;
-        margin-bottom: 1em;
-    }
-
-    .skill-fill {
-        background: #2563eb !important;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
-
-    .project-card, .timeline-content {
-        break-inside: avoid;
-        box-shadow: none;
-        background: none;
-    }
-
-    .timeline::before, .timeline-dot {
-        display: none;
-    }
-
-    .timeline {
-        padding-left: 0;
-    }
-
-    .footer {
-        margin-top: 1em;
-        border-top: 1px solid #ccc;
-        color: black;
-    }
 }
