@@ -472,3 +472,26 @@ h2::after {
         -webkit-print-color-adjust: exact;
     }
 }
+
+.download-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #2563eb, #60a5fa);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

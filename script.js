@@ -10,6 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800);
     }
 
+    // Download PDF button
+    const downloadBtn = document.getElementById('download-pdf');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            const element = document.querySelector('.container');
+            const opt = {
+                margin: 0.5,
+                filename: 'Nazar_Haniuk_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        });
+    }
+
     // Fade-in animations for sections
     const sections = document.querySelectorAll('.section');
     sections.forEach((section, index) => {
