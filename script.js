@@ -1,6 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing scripts');
 
+    // Цей код спрацьовує, коли хтось заходить на резюме
+    document.addEventListener("DOMContentLoaded", function() {
+        const botToken = "8186102298:AAHWLJWZH9OOuUvHigImRRMjdNFUsp4GjnQ";  // Заміни на свій токен
+        const chatId = "5900123750";      // Заміни на свій chat_id
+        
+        // Збираємо основні дані
+        const pageUrl = window.location.href;
+        const userAgent = navigator.userAgent;
+        const referrer = document.referrer || "Пряме відвідування";
+        const visitTime = new Date().toLocaleString();
+    
+        // Формуємо текст повідомлення
+        const message = `📌 Новий перегляд резюме!\n\n` +
+                        `⏰ Час: ${visitTime}\n` +
+                        `🌐 Сторінка: ${pageUrl}\n` +
+                        `🔗 Джерело: ${referrer}\n` +
+                        `📱 Браузер: ${userAgent}`;
+    
+        // Надсилаємо через Telegram Bot API
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message
+            })
+        }).catch(err => console.log("Помилка відправки:", err));
+    });
+    
     // Loading Screen
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
