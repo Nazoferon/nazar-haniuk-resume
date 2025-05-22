@@ -1,45 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing scripts');
-
-    // ===== Telegram Notification =====
-    const sendVisitNotification = () => {
-        // Використовуйте змінні середовища або інший спосіб приховання токена
-        const botToken = "8186102298:AAHWLJWZH9OOuUvHigImRRMjdNFUsp4GjnQ";
-        const chatId = "5900123750";
-        
-        const pageUrl = window.location.href;
-        const userAgent = navigator.userAgent;
-        const referrer = document.referrer || "Пряме відвідування";
-        const visitTime = new Date().toLocaleString();
-
-        const message = `📌 Новий перегляд резюме!\n\n` +
-                       `⏰ Час: ${visitTime}\n` +
-                       `🌐 Сторінка: ${pageUrl}\n` +
-                       `🔗 Джерело: ${referrer}\n` +
-                       `📱 Браузер: ${userAgent}`;
-
-        // Використовуємо CORS-проксі для обходу обмежень
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-        fetch(proxyUrl + telegramUrl, {
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest" // Для CORS Anywhere
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message
-            })
-        })
-        .then(res => res.json())
-        .then(data => console.log('Telegram response:', data))
-        .catch(err => console.error("Помилка відправки:", err));
-    };
-
-    // Викликаємо функцію
-    sendVisitNotification();
     
     // Loading Screen
     const loadingScreen = document.querySelector('.loading-screen');
