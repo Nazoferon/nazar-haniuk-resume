@@ -49,9 +49,8 @@
 4. Перегляньте сайт за адресою `http://localhost:8000`.
 
 ## Контакти
-- 📧 Email: [nazar.haniuk@example.com](mailto:nazar.haniuk@example.com)
+- 📧 Email: [nazar.haniuk.dev@gmail.com](mailto:nazar.haniuk.dev@gmail.com)
 - 🔗 GitHub: [Nazoferon](https://github.com/Nazoferon)
-- 💼 LinkedIn: [Назар Ганюк](https://linkedin.com/in/nazar-haniuk)
 
 ## Ліцензія
 Цей проєкт ліцензовано за [MIT License](LICENSE).
