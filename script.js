@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing scripts');
-
+    
     // Loading Screen
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
